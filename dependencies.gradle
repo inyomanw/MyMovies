@@ -1,0 +1,78 @@
+ext {
+    supportVersion = '28.0.0'
+    retrofitVersion = '2.4.0'
+    okhttp3Version = '3.10.0'
+    rxJavaVersion = '2.2.3'
+    rxAndroidVersion = '2.1.0'
+    rxBindingVersion = '2.0.0'
+    daggerVersion = '2.15'
+    AACVersion = '1.1.1'
+    constraintVersion = '1.1.3'
+    jodaTimeVersion = '2.9.9.1'
+    glideVersion = '4.9.0'
+    roomVersion = '1.1.1'
+
+
+    support =
+            [
+                    compat      : "com.android.support:support-compat:$supportVersion",
+                    app         : "com.android.support:appcompat-v7:$supportVersion",
+                    cardView    : "com.android.support:cardview-v7:$supportVersion",
+                    recyclerView: "com.android.support:recyclerview-v7:$supportVersion",
+                    design      : "com.android.support:design:$supportVersion",
+            ]
+    dagger =
+            [
+                    dagger   : "com.google.dagger:dagger:$daggerVersion",
+                    compiler : "com.google.dagger:dagger-compiler:$daggerVersion",
+                    android  : "com.google.dagger:dagger-android:$daggerVersion",
+                    support  : "com.google.dagger:dagger-android-support:$daggerVersion",
+                    processor: "com.google.dagger:dagger-android-processor:$daggerVersion",
+            ]
+    retrofit =
+            [
+                    retrofit: "com.squareup.retrofit2:retrofit:$retrofitVersion",
+                    gson    : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+                    rx      : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            ]
+    okHttp =
+            [
+                    okHttp : "com.squareup.okhttp3:okhttp:$okhttp3Version",
+                    logging: "com.squareup.okhttp3:logging-interceptor:$okhttp3Version",
+            ]
+    rx =
+            [
+                    android: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+                    java   : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            ]
+    rxBinding =
+            [
+
+                    rxbinding  : "com.jakewharton.rxbinding2:rxbinding:$rxBindingVersion",
+                    rxSupport  : "com.jakewharton.rxbinding2:rxbinding-support-v4:$rxBindingVersion",
+                    rxAppCompat: "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rxBindingVersion",
+                    rxDesign   : "com.jakewharton.rxbinding2:rxbinding-design:$rxBindingVersion"
+            ]
+    ac =
+            [
+                    extensions: "android.arch.lifecycle:extensions:$AACVersion",
+                    constraint: "com.android.support.constraint:constraint-layout:$constraintVersion"
+            ]
+    joda =
+            [
+                    joda: "net.danlew:android.joda:$jodaTimeVersion"
+            ]
+    glide =
+            [
+                    glide: "com.github.bumptech.glide:glide:$glideVersion",
+                    compiler : "com.github.bumptech.glide:compiler:$glideVersion"
+            ]
+    room =
+            [
+                    runtime: "android.arch.persistence.room:runtime:$roomVersion",
+                    compiler: "android.arch.persistence.room:compiler:$roomVersion",
+                    testing: "android.arch.persistence.room:testing:$roomVersion"
+            ]
+
+}
+
