@@ -5,7 +5,7 @@ ext {
     rxJavaVersion = '2.2.3'
     rxAndroidVersion = '2.1.0'
     rxBindingVersion = '2.0.0'
-    daggerVersion = '2.15'
+    daggerVersion = '2.16'
     AACVersion = '1.1.1'
     constraintVersion = '1.1.3'
     jodaTimeVersion = '2.9.9.1'
