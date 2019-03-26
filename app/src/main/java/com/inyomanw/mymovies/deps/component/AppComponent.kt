@@ -1,5 +1,6 @@
 package com.inyomanw.mymovies.deps.component
 
+import android.app.Application
 import com.inyomanw.mymovies.MyMovieApp
 import com.inyomanw.mymovies.deps.module.ActivityBuilder
 import com.inyomanw.mymovies.deps.module.FragmentBuilder
@@ -29,6 +30,8 @@ interface AppComponent : AndroidInjector<DaggerApplication> {
     @Component.Builder
     interface Builder {
         @BindsInstance
+        fun application(application: Application): Builder
+
         fun network(networkModule: NetworkModule): Builder
 
         fun myMovies(myMoviesModule: MyMoviesModule): Builder

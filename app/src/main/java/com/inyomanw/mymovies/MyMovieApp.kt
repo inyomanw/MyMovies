@@ -13,6 +13,7 @@ class MyMovieApp : DaggerApplication() {
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
         val appComponent : AppComponent by lazy {
             DaggerAppComponent.builder()
+                .application(this)
                 .network(NetworkModule())
                 .myMovies(MyMoviesModule())
                 .build()

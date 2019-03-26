@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import android.util.Log
 
 
 @Suppress("DEPRECATION")
@@ -30,6 +31,7 @@ class ConnectionLiveData(private val context: Context) : LiveData<Boolean>() {
             override fun onReceive(context: Context?, intent: Intent?) {
                 val info = intent?.extras?.getParcelable<NetworkInfo>("networkInfo")
                 val status = info?.state == NetworkInfo.State.CONNECTED
+                Log.d("logv networkReceiver","status : $status")
                 value = status
             }
         }

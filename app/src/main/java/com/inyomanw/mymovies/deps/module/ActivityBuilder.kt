@@ -1,7 +1,7 @@
 package com.inyomanw.mymovies.deps.module
 
 import android.annotation.SuppressLint
-import com.inyomanw.mymovies.MainActivity
+import com.inyomanw.mymovies.ui.main.MainActivity
 import com.inyomanw.mymovies.deps.ActivityScoped
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
