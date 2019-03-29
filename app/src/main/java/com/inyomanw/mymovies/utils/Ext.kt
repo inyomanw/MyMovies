@@ -13,11 +13,3 @@ fun ImageView.onLoad(context: Context,url :String){
         .placeholder(R.drawable.ch_ic_arrow_left)
         .into(this)
 }
-
-fun View.visible(){
-    visibility = View.VISIBLE
-}
-
-fun View.gone(){
-    visibility = View.GONE
-}

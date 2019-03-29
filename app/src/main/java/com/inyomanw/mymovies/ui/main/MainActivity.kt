@@ -1,18 +1,19 @@
 package com.inyomanw.mymovies.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.LinearSnapHelper
-import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.inyomanw.corelibrary.base.DiffCallback
+import com.inyomanw.corelibrary.base.GeneralRecyclerViewAdapter
 import com.inyomanw.mymovies.BuildConfig
 import com.inyomanw.mymovies.R
 import com.inyomanw.mymovies.base.BaseActivity
-import com.inyomanw.mymovies.common.DiffCallback
-import com.inyomanw.mymovies.common.GeneralRecyclerViewAdapter
 import com.inyomanw.mymovies.data.model.PopularMovieModel
+import com.inyomanw.mymovies.ui.detail.DetailActivity
 import com.inyomanw.mymovies.utils.onLoad
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.viewholder_movie.view.*
@@ -36,7 +37,10 @@ class MainActivity : BaseActivity() {
                 populateDisplayMovies(model, view)
             },
             itemListener = { model, _, _ ->
-                Toast.makeText(this@MainActivity, model.originalTitle, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, "${model.id}", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, DetailActivity::class.java).apply {
+                    putExtra("ID", model.id)
+                })
             }
         )
     }
@@ -51,6 +55,9 @@ class MainActivity : BaseActivity() {
             layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
             adapter = moviesAdapter
             snapHelper.attachToRecyclerView(this)
+        }
+        tv_see_more.setOnClickListener {
+            startActivity(Intent(this@MainActivity, SeeMoreActivity::class.java))
         }
         observingData()
     }

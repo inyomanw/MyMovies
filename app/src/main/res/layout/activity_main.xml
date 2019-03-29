@@ -7,11 +7,32 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.MainActivity">
 
+    <TextView
+            android:id="@+id/tv_popular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="15sp"
+            android:text="Popular Movie"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+            android:id="@+id/tv_see_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="see more ..."
+            android:layout_marginRight="8dp"
+            app:layout_constraintTop_toTopOf="@id/tv_popular"/>
+
     <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_movies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_popular"
+            android:layout_marginTop="8dp"
             app:layout_constraintLeft_toLeftOf="parent"></android.support.v7.widget.RecyclerView>
 
     <include layout="@layout/layout_server_error" />

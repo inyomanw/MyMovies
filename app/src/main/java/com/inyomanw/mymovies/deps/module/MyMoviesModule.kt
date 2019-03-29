@@ -2,13 +2,12 @@ package com.inyomanw.mymovies.deps.module
 
 import android.app.Application
 import android.content.Context
-import com.inyomanw.mymovies.common.DiffCallback
+import com.inyomanw.corelibrary.base.DiffCallback
 import com.inyomanw.mymovies.data.model.ConnectionLiveData
 import com.inyomanw.mymovies.data.repository.MyMoviesRepository
 import com.inyomanw.mymovies.network.ApiInterface
 import dagger.Module
 import dagger.Provides
-import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module
