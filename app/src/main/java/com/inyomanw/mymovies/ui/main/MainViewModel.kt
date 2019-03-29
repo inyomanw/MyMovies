@@ -2,10 +2,10 @@ package com.inyomanw.mymovies.ui.main
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
+import com.inyomanw.corelibrary.deps.ActivityScoped
 import com.inyomanw.mymovies.base.BaseViewModel
 import com.inyomanw.mymovies.data.model.PopularMovieModel
 import com.inyomanw.mymovies.data.repository.MyMoviesRepository
-import com.inyomanw.mymovies.deps.ActivityScoped
 import javax.inject.Inject
 
 @ActivityScoped

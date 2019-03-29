@@ -1,8 +1,8 @@
 package com.inyomanw.mymovies.deps.module
 
 import android.annotation.SuppressLint
+import com.inyomanw.corelibrary.deps.ActivityScoped
 import com.inyomanw.mymovies.ui.main.MainActivity
-import com.inyomanw.mymovies.deps.ActivityScoped
 import com.inyomanw.mymovies.ui.detail.DetailActivity
 import com.inyomanw.mymovies.ui.main.SeeMoreActivity
 import dagger.Module

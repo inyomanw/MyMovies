@@ -20,6 +20,7 @@ android {
         buildConfigField "String", "BASE_URL_HARDCODE", "\"http://api.themoviedb.org/3/movie/\""
         buildConfigField "String", "BASE_API_KEY", "\"b5efd308a85eb7739be05af5d67e4184\""
         buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/w500\""
+        buildConfigField "String", "BASE_SHARED_PREFERENCES", "\"shared_preferences\""
     }
     buildTypes {
         release {
@@ -72,7 +73,7 @@ dependencies {
     testImplementation room.testing
 
 //    implementation 'com.github.inyomanw:CommonUtils:0.0.1'
-    implementation 'com.github.inyomanw:corelib:0.0.3'
+    implementation 'com.github.inyomanw:corelib:0.0.4'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
