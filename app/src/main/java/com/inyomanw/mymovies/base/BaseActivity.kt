@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.support.annotation.DrawableRes
 import android.support.annotation.StringRes
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.MenuItem
 import android.view.WindowManager
 import android.widget.TextView
@@ -31,7 +30,6 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
 
     protected fun boundNetwork(action: (Boolean) -> Unit = {}) {
         connectionLiveData.onResult {
-            Log.d("logv boundNetwork base", "it : $it")
             action.invoke(it)
         }
     }

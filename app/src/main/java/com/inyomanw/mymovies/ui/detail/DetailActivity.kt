@@ -3,6 +3,7 @@ package com.inyomanw.mymovies.ui.detail
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.v4.view.ViewCompat
+import com.inyomanw.corelibrary.utils.calculateTwoDates
 import com.inyomanw.mymovies.BuildConfig
 import com.inyomanw.mymovies.R
 import com.inyomanw.mymovies.base.BaseActivity
@@ -52,6 +53,7 @@ class DetailActivity : BaseActivity(), AppBarLayout.OnOffsetChangedListener {
         imv_detail.onLoad(this@DetailActivity, "${BuildConfig.BASE_IMAGE_URL}${data.posterPath}")
         tv_title.text = data.title
         tv_overview.text = data.overview
+        data.releaseDate?.let { tv_date.text = this.calculateTwoDates(it) }
     }
 
 

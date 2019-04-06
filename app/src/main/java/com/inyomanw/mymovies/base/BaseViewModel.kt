@@ -4,7 +4,7 @@ import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.support.annotation.CallSuper
-import com.inyomanw.mymovies.network.NetworkError
+import com.inyomanw.corelibrary.base.NetworkError
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
