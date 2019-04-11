@@ -3,7 +3,7 @@ package com.inyomanw.mymovies.ui.detail
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import com.inyomanw.mymovies.base.BaseViewModel
-import com.inyomanw.mymovies.data.model.DetailMovieResponse
+import com.inyomanw.mymovies.data.remote.DetailMovieResponse
 import com.inyomanw.mymovies.data.repository.MyMoviesRepository
 import javax.inject.Inject
 

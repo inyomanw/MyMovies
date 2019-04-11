@@ -8,7 +8,8 @@ import com.inyomanw.corelibrary.base.GeneralRecyclerViewAdapter
 import com.inyomanw.mymovies.BuildConfig
 import com.inyomanw.mymovies.R
 import com.inyomanw.mymovies.base.BaseActivity
-import com.inyomanw.mymovies.data.model.PopularMovieModel
+import com.inyomanw.mymovies.data.local.PopularMovie
+import com.inyomanw.mymovies.data.remote.PopularMovieModel
 import com.inyomanw.mymovies.utils.onLoad
 import kotlinx.android.synthetic.main.activity_see_more.*
 import kotlinx.android.synthetic.main.viewholder_more_movie.view.*
@@ -24,7 +25,7 @@ class SeeMoreActivity : BaseActivity() {
     private var isConnected = true
 
     private val movieAdapter by lazy {
-        GeneralRecyclerViewAdapter<PopularMovieModel>(
+        GeneralRecyclerViewAdapter<PopularMovie>(
             diffCallback = diffCallback,
             holderResId = R.layout.viewholder_more_movie,
             onBind = {model, view ->
@@ -62,12 +63,12 @@ class SeeMoreActivity : BaseActivity() {
         }
     }
 
-    private fun populateDisplay(model : PopularMovieModel, itemView : View){
+    private fun populateDisplay(model : PopularMovie, itemView : View){
         with(itemView){
-            imv_poster.onLoad(this@SeeMoreActivity,"${BuildConfig.BASE_IMAGE_URL}${model.posterPath}")
-            tv_rating.text=model.voteAverage.toString()
+            imv_poster.onLoad(this@SeeMoreActivity,"${BuildConfig.BASE_IMAGE_URL}${model.image}")
+            tv_rating.text=model.vote.toString()
             tv_count_rate.text = model.voteCount.toString()
-            tv_overview.text = model.overview
+            tv_overview.text = model.description
         }
     }
 

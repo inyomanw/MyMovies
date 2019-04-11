@@ -1,17 +1,28 @@
 package com.inyomanw.mymovies.data.repository
 
-import com.inyomanw.mymovies.data.model.DetailMovieResponse
-import com.inyomanw.mymovies.data.model.NowPlayingResult
-import com.inyomanw.mymovies.data.model.PopularMovieModel
+import android.util.Log
+import com.inyomanw.mymovies.data.local.PopularMovie
+import com.inyomanw.mymovies.data.local.entity.PopularMovieEntity
+import com.inyomanw.mymovies.data.remote.DetailMovieResponse
+import com.inyomanw.mymovies.data.remote.NowPlayingResult
+import com.inyomanw.mymovies.data.remote.PopularMovieModel
 import com.inyomanw.mymovies.network.ApiInterface
 import io.reactivex.Single
 
-class MyMoviesRepository(private var apiInterface: ApiInterface) {
-    fun getPopularMoview(): Single<List<PopularMovieModel>> {
+class MyMoviesRepository(
+    private var apiInterface: ApiInterface,
+    private var lokalPopularMovieDataSource: LokalPopularMovieDataSource
+) {
+    fun getPopularMovieFromRemote(): Single<List<PopularMovie>> {
         return apiInterface.getPopularMovies()
-            .map {
-                it.getPopularMovie()
+            .doOnSuccess {
+                lokalPopularMovieDataSource.addPopularMovies(
+                    it.results?.map { data -> PopularMovieEntity.from(data) })
             }
+            .map {
+                it.results?.map { data -> PopularMovie.from(data) }
+            }
+
     }
 
     fun getDetailMovie(id: Int): Single<DetailMovieResponse> {
@@ -19,11 +30,20 @@ class MyMoviesRepository(private var apiInterface: ApiInterface) {
             .map { it }
     }
 
-    fun getNowPlayingMovie() : Single<List<NowPlayingResult>> {
+    fun getNowPlayingMovie(): Single<List<NowPlayingResult>> {
         return apiInterface.getNowPlayingMovies()
             .map {
                 it.getNowPlayingResult()
             }
+    }
+
+    fun getPopularMovies(): Single<List<PopularMovie>> {
+        return lokalPopularMovieDataSource.getPopularMovies()
+            .flatMap { list ->
+                list?.let { Single.just(it) } ?: kotlin.run { getPopularMovieFromRemote() }
+            }
+            .doAfterSuccess { getPopularMovieFromRemote() }
+
     }
 
 }

@@ -7,8 +7,14 @@ import com.inyomanw.mymovies.deps.component.DaggerAppComponent
 import com.inyomanw.mymovies.deps.module.MyMoviesModule
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
+import okhttp3.Cache
+import java.io.IOException
+import javax.inject.Inject
 
 class MyMovieApp : DaggerApplication() {
+
+    @Inject
+    lateinit var httpCache : Cache
 
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
@@ -16,11 +22,20 @@ class MyMovieApp : DaggerApplication() {
             DaggerAppComponent.builder()
                 .application(this)
                 .util(UtilModule(BuildConfig.BASE_SHARED_PREFERENCES,this))
-                .network(NetworkModule(BuildConfig.BASE_URL_HARDCODE))
+                .network(NetworkModule(BuildConfig.BASE_URL_HARDCODE,this))
                 .myMovies(MyMoviesModule())
                 .build()
         }
         return  appComponent
     }
+
+    private fun clearHttpCache() {
+        try {
+            httpCache.evictAll()
+        } catch (e: IOException) {
+            e.message
+        }
+    }
+
 
 }

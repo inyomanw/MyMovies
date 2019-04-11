@@ -71,7 +71,8 @@ ext {
             [
                     runtime: "android.arch.persistence.room:runtime:$roomVersion",
                     compiler: "android.arch.persistence.room:compiler:$roomVersion",
-                    testing: "android.arch.persistence.room:testing:$roomVersion"
+                    testing: "android.arch.persistence.room:testing:$roomVersion",
+                    rxjava2: "android.arch.persistence.room:rxjava2:$roomVersion"
             ]
 
 }

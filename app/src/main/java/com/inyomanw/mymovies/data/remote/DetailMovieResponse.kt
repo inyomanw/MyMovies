@@ -1,4 +1,4 @@
-package com.inyomanw.mymovies.data.model
+package com.inyomanw.mymovies.data.remote
 import com.google.gson.annotations.SerializedName
 
 

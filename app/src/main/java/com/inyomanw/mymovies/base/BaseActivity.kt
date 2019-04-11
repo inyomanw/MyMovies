@@ -11,7 +11,7 @@ import android.view.MenuItem
 import android.view.WindowManager
 import android.widget.TextView
 import com.inyomanw.mymovies.R
-import com.inyomanw.mymovies.data.model.ConnectionLiveData
+import com.inyomanw.mymovies.data.remote.ConnectionLiveData
 import dagger.android.support.DaggerAppCompatActivity
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable

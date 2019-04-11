@@ -1,4 +1,4 @@
-package com.inyomanw.mymovies.data.model
+package com.inyomanw.mymovies.data.remote
 
 import android.annotation.SuppressLint
 import android.arch.lifecycle.LiveData

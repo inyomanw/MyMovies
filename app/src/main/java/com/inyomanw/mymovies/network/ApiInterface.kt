@@ -1,9 +1,9 @@
 package com.inyomanw.mymovies.network
 
 import com.inyomanw.mymovies.BuildConfig
-import com.inyomanw.mymovies.data.model.DetailMovieResponse
-import com.inyomanw.mymovies.data.model.NowPlayingMovieResponse
-import com.inyomanw.mymovies.data.model.PopularMovieResponse
+import com.inyomanw.mymovies.data.remote.DetailMovieResponse
+import com.inyomanw.mymovies.data.remote.NowPlayingMovieResponse
+import com.inyomanw.mymovies.data.remote.PopularMovieResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path

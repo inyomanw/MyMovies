@@ -1,20 +1,18 @@
-package com.inyomanw.mymovies.data.model
+package com.inyomanw.mymovies.data.remote
 import com.google.gson.annotations.SerializedName
 
 
-data class NowPlayingMovieResponse(
-    @SerializedName("dates")
-    val dates: Dates?,
+data class PopularMovieResponse(
     @SerializedName("page")
     val page: Int?,
     @SerializedName("results")
-    val results: List<NowPlayingResult>?,
+    val results: List<PopularMovieModel>?,
     @SerializedName("total_pages")
     val totalPages: Int?,
     @SerializedName("total_results")
     val totalResults: Int?
 ){
-    fun getNowPlayingResult() : List<NowPlayingResult> {
+    fun getPopularMovie() : List<PopularMovieModel> {
         return when{
             results.isNullOrEmpty() -> listOf()
             else -> results
@@ -22,14 +20,7 @@ data class NowPlayingMovieResponse(
     }
 }
 
-data class Dates(
-    @SerializedName("maximum")
-    val maximum: String?,
-    @SerializedName("minimum")
-    val minimum: String?
-)
-
-data class NowPlayingResult(
+data class PopularMovieModel(
     @SerializedName("adult")
     val adult: Boolean?,
     @SerializedName("backdrop_path")

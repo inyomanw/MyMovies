@@ -3,7 +3,9 @@ package com.inyomanw.mymovies.deps.module
 import android.app.Application
 import android.content.Context
 import com.inyomanw.corelibrary.base.DiffCallback
-import com.inyomanw.mymovies.data.model.ConnectionLiveData
+import com.inyomanw.mymovies.data.local.dao.PopularMovieDao
+import com.inyomanw.mymovies.data.remote.ConnectionLiveData
+import com.inyomanw.mymovies.data.repository.LokalPopularMovieDataSource
 import com.inyomanw.mymovies.data.repository.MyMoviesRepository
 import com.inyomanw.mymovies.network.ApiInterface
 import dagger.Module
@@ -23,10 +25,14 @@ class MyMoviesModule {
 
     @Provides
     @Singleton
-    fun providesRepository(apiInterface: ApiInterface): MyMoviesRepository {
-        return MyMoviesRepository(apiInterface)
+    fun providesRepository(apiInterface: ApiInterface,
+                           lokalPopularMovieDataSource: LokalPopularMovieDataSource): MyMoviesRepository {
+        return MyMoviesRepository(apiInterface,lokalPopularMovieDataSource)
     }
 
+    @Provides
+    @Singleton
+    fun providesLokalDataSource(context: Context) = LokalPopularMovieDataSource(context)
 
     @Provides
     @Singleton

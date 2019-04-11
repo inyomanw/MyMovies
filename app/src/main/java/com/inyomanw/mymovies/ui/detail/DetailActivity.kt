@@ -7,7 +7,7 @@ import com.inyomanw.corelibrary.utils.calculateTwoDates
 import com.inyomanw.mymovies.BuildConfig
 import com.inyomanw.mymovies.R
 import com.inyomanw.mymovies.base.BaseActivity
-import com.inyomanw.mymovies.data.model.DetailMovieResponse
+import com.inyomanw.mymovies.data.remote.DetailMovieResponse
 import com.inyomanw.mymovies.utils.onLoad
 import kotlinx.android.synthetic.main.activity_detail.*
 import javax.inject.Inject

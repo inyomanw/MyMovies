@@ -2,7 +2,7 @@ package com.inyomanw.mymovies.base
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.Observer
-import com.inyomanw.mymovies.data.model.ConnectionLiveData
+import com.inyomanw.mymovies.data.remote.ConnectionLiveData
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 

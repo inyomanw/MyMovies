@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.LinearSnapHelper
+import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -12,7 +13,8 @@ import com.inyomanw.corelibrary.base.GeneralRecyclerViewAdapter
 import com.inyomanw.mymovies.BuildConfig
 import com.inyomanw.mymovies.R
 import com.inyomanw.mymovies.base.BaseActivity
-import com.inyomanw.mymovies.data.model.PopularMovieModel
+import com.inyomanw.mymovies.data.local.PopularMovie
+import com.inyomanw.mymovies.data.remote.PopularMovieModel
 import com.inyomanw.mymovies.ui.detail.DetailActivity
 import com.inyomanw.mymovies.utils.onLoad
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,7 +32,7 @@ class MainActivity : BaseActivity() {
     private var isConnected = true
 
     private val moviesAdapter by lazy {
-        GeneralRecyclerViewAdapter<PopularMovieModel>(
+        GeneralRecyclerViewAdapter<PopularMovie>(
             diffCallback = diffCallback,
             holderResId = R.layout.viewholder_movie,
             onBind = { model, view ->
@@ -47,7 +49,11 @@ class MainActivity : BaseActivity() {
 
     override fun onSetupLayout(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_main)
+        var myArray = arrayOf(1, 4, 8, 10)
+        Log.d("logv","max Array : ${myArray.max()}")
     }
+
+
 
     override fun onViewReady(savedInstanceState: Bundle?) {
         val snapHelper = LinearSnapHelper()
@@ -79,11 +85,11 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    private fun populateDisplayMovies(model: PopularMovieModel, itemView: View) {
+    private fun populateDisplayMovies(model: PopularMovie, itemView: View) {
         with(itemView) {
-            imv_image.onLoad(this@MainActivity, "${BuildConfig.BASE_IMAGE_URL}${model.posterPath}")
+            imv_image.onLoad(this@MainActivity, "${BuildConfig.BASE_IMAGE_URL}${model.image}")
             tv_title.text = model.title
-            tv_rating.text = model.voteAverage.toString()
+            tv_rating.text = model.vote.toString()
         }
     }
 
